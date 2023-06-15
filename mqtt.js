@@ -6,8 +6,10 @@ function startConnect(){
     // userId  = document.getElementById("username").value;  
     // passwordId = document.getElementById("password").value;  
 
-    document.getElementById("messages").innerHTML += "<span> Connecting to " + host + " on port " +port+"</span><br>";
-    document.getElementById("messages").innerHTML += "<span> Using the client Id " + clientID +" </span><br>";
+    // document.getElementById("messages").innerHTML += "<span> Connecting to " + host + " on port " +port+"</span><br>";
+    // document.getElementById("messages").innerHTML += "<span> Using the client Id " + clientID +" </span><br>";
+    document.getElementById("messages").insertAdjacentHTML("afterbegin", "<span> Connecting to " + host + " on port " +port+"</span><br>");
+    document.getElementById("messages").insertAdjacentHTML("afterbegin", "<span> Using the client Id " + clientID +" </span><br>");
 
     client = new Paho.MQTT.Client(host,Number(port),clientID);
 
@@ -25,26 +27,31 @@ function startConnect(){
 function onConnect(){
     topic =  document.getElementById("topic_s").value;
 
-    document.getElementById("messages").innerHTML += "<span> Subscribing to topic "+topic + "</span><br>";
+    // document.getElementById("messages").innerHTML += "<span> Subscribing to topic "+topic + "</span><br>";
+    document.getElementById("messages").insertAdjacentHTML("afterbegin", "<span> Subscribing to topic "+topic + "</span><br>");
 
     client.subscribe(topic);
 }
 
 function onConnectionLost(responseObject){
-    document.getElementById("messages").innerHTML += "<span> ERROR: Connection is lost.</span><br>";
+    // document.getElementById("messages").innerHTML += "<span> ERROR: Connection is lost.</span><br>";
+    document.getElementById("messages").insertAdjacentHTML("afterbegin", "<span> ERROR: Connection is lost.</span><br>");
     if(responseObject !=0){
-        document.getElementById("messages").innerHTML += "<span> ERROR:"+ responseObject.errorMessage +"</span><br>";
+        // document.getElementById("messages").innerHTML += "<span> ERROR:"+ responseObject.errorMessage +"</span><br>";
+        document.getElementById("messages").insertAdjacentHTML("afterbegin", "<span> ERROR:"+ responseObject.errorMessage +"</span><br>");
     }
 }
 
 function onMessageArrived(message){
     console.log("OnMessageArrived: "+message.payloadString);
-    document.getElementById("messages").innerHTML += "<span> Topic:"+message.destinationName+"| Message : "+message.payloadString + "</span><br>";
+    // document.getElementById("messages").innerHTML += "<span> Topic:"+message.destinationName+"| Message : "+message.payloadString + "</span><br>";
+    document.getElementById("messages").insertAdjacentHTML("afterbegin", "<span> Topic:"+message.destinationName+"| Message : "+message.payloadString + "</span><br>");
 }
 
 function startDisconnect(){
     client.disconnect();
-    document.getElementById("messages").innerHTML += "<span> Disconnected. </span><br>";
+    // document.getElementById("messages").innerHTML += "<span> Disconnected. </span><br>";
+    document.getElementById("messages").insertAdjacentHTML("afterbegin", "<span> Disconnected. </span><br>");
 }
 
 /*
