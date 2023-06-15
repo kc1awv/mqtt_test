@@ -33,7 +33,7 @@ function onConnectionLost(responseObject){
 
 function onMessageArrived(message){
     console.log("OnMessageArrived: " + message.payloadString);
-    document.getElementById("messages").insertAdjacentHTML("afterbegin", "<span>" + Date.now() + " Topic:" + message.destinationName + " | Message : " + message.payloadString + "</span><br>");
+    document.getElementById("messages").insertAdjacentHTML("afterbegin", "<span>" + Date.now() + " Topic: " + message.destinationName + " | Message: " + message.payloadString + "</span><br>");
 }
 
 function startDisconnect(){
