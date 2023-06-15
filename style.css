@@ -54,6 +54,7 @@ input[type=button]:hover {
 }
 
 #messages {
+    font-family: 'Roboto Mono', monospace;
     margin-top: 12px;
     margin-bottom: 12px;
     padding: 12px;
