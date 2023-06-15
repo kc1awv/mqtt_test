@@ -1,10 +1,10 @@
 function startConnect(){
     clientID = "clientID - "+parseInt(Math.random() * 100);
 
-    host = document.getElementById("host").value;   
-    port = document.getElementById("port").value;  
-    userId  = document.getElementById("username").value;  
-    passwordId = document.getElementById("password").value;  
+    host = "mqtt.m17labs.org"
+    port = "8084"
+    // userId  = document.getElementById("username").value;  
+    // passwordId = document.getElementById("password").value;  
 
     document.getElementById("messages").innerHTML += "<span> Connecting to " + host + " on port " +port+"</span><br>";
     document.getElementById("messages").innerHTML += "<span> Using the client Id " + clientID +" </span><br>";
@@ -47,6 +47,7 @@ function startDisconnect(){
     document.getElementById("messages").innerHTML += "<span> Disconnected. </span><br>";
 }
 
+/*
 function publishMessage(){
     msg = document.getElementById("Message").value;
     topic = document.getElementById("topic_p").value;
@@ -57,3 +58,4 @@ function publishMessage(){
     client.send(Message);
     document.getElementById("messages").innerHTML += "<span> Message to topic "+topic+" is sent </span><br>";
 }
+*/
